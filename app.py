@@ -3,9 +3,16 @@ import requests
 import os
 import openai
 
-FOOTBALL_DATA_API_KEY = os.getenv("FOOTBALL_DATA_API_KEY")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+import streamlit as st
+
+# ... (outros imports)
+
+# <-- aqui usamos st.secrets em vez de os.getenv -->
+FOOTBALL_DATA_API_KEY = st.secrets["FOOTBALL_DATA_API_KEY"]
+OPENAI_API_KEY        = st.secrets["OPENAI_API_KEY"]
+import openai
 openai.api_key = OPENAI_API_KEY
+
 
 st.set_page_config(page_title="BetInsight", layout="centered")
 st.title("BetInsight 🎯")
